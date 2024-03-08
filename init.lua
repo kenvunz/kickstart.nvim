@@ -201,6 +201,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+require 'custom.options'
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -818,7 +820,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
@@ -838,7 +840,13 @@ require('lazy').setup({
       task = '📌',
       lazy = '💤 ',
     },
+    border = 'rounded',
   },
+  install = {
+    missing = true,
+    colorscheme = { 'rose-pine' },
+  },
+  checker = { enabled = true },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
